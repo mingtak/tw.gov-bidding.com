@@ -3,6 +3,7 @@ z3c.recipe.staticlxml
 =======
 >>>>>>> 9579d00511005d165c0bd277b4945cda0a1c6ec1
 *~
+config.py
 *.pyc
 *.pyo
 *.tmp*
