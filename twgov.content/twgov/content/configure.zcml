@@ -15,6 +15,7 @@
   <grok:grok package="." />
 
   <include package="plone.app.relationfield" />
+  <include package=".browser" />
 
   <!-- Register a resource directory from which we can deploy static
    resource files. -->
