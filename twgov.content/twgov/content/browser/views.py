@@ -43,7 +43,7 @@ class GetGovNotice(BrowserView):
 #            testre = str()
 #            return len(findT11bTags)
             for T11b in findT11bTags:
-                T11bString = T11b.string
+                T11bString = T11b.string.strip()
                 if T11bString == NOTICE_KEYWORDS[0]:
                     [text for text in T11b.find_next_siblings("td")[0].stripped_strings]
                     govDepartment = text
@@ -88,13 +88,30 @@ class GetGovNotice(BrowserView):
                     noticeState = text
                 elif T11bString == NOTICE_KEYWORDS[14]:
                     [text for text in T11b.find_next_siblings("td")[0].stripped_strings]
-                    startDate = text
+                    splitText = text.split('/')
+                    startDate = (int(splitText[0])+1911,
+                                 int(splitText[1]),
+                                 int(splitText[2]),)
                 elif T11bString == NOTICE_KEYWORDS[15]:
                     [text for text in T11b.find_next_siblings("td")[0].stripped_strings]
-                    endDate = text
+                    splitText = text.split()
+                    splitTextToDate = splitText[0].split('/')
+                    splitTextToTime = splitText[1].split(':')
+                    endDate = (int(splitTextToDate[0])+1911,
+                               int(splitTextToDate[1]),
+                               int(splitTextToDate[2]),
+                               int(splitTextToTime[0]),
+                               int(splitTextToTime[1]),)
                 elif T11bString == NOTICE_KEYWORDS[16]:
                     [text for text in T11b.find_next_siblings("td")[0].stripped_strings]
-                    bidDate = text
+                    splitText = text.split()
+                    splitTextToDate = splitText[0].split('/')
+                    splitTextToTime = splitText[1].split(':')
+                    bidDate = (int(splitTextToDate[0])+1911,
+                               int(splitTextToDate[1]),
+                               int(splitTextToDate[2]),
+                               int(splitTextToTime[0]),
+                               int(splitTextToTime[1]),)
                 elif T11bString == NOTICE_KEYWORDS[17]:
                     [text for text in T11b.find_next_siblings("td")[0].stripped_strings]
                     bidAddress = text
@@ -129,18 +146,17 @@ class GetGovNotice(BrowserView):
             item.decideWay = decideWay
             item.noticeTimes = noticeTimes
             item.noticeState = noticeState
-#            item.startDate =
-#            item.endDate =
-#            item.bidDate =
+            item.startDate = datetime(startDate[0], startDate[1], startDate[2])
+            item.endDate = datetime(endDate[0], endDate[1], endDate[2], endDate[3], endDate[4])
+            item.bidDate = datetime(bidDate[0], bidDate[1], bidDate[2], bidDate[3], bidDate[4])
             item.bidAddress = bidAddress
             item.bidDeposit = bidDeposit
             item.documentSendTo = documentSendTo
             item.companyQualification = companyQualification
             item.companyAbility = companyAbility
+            item.exclude_from_nav = True
+            item.reindexObject(idxs=['exclude_from_nav'])
+            # 先處理一筆
+            return '%s%s' % ('ok', str([startDate, endDate, bidDate]))
 
-#            return govDepartment
-
-#日期是民國，要先轉成西元再處理
-#            item.start_date = datetime(2013,12,31) #這個格式可以
-#            item.end_date = datetime(2013,12,11,12,10,35)
         return '%s%s' % ('OK', len(hrefList)) 
