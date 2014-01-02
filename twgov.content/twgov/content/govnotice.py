@@ -140,6 +140,12 @@ class IgovNotice(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
+    noticeUrl = schema.TextLine(
+        title=_(u'notice url address'),
+        required=False,
+    )
+
+
 
 
 class govNotice(Container):
