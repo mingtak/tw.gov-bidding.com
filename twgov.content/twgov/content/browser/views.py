@@ -1,14 +1,7 @@
 # -*- coding: utf-8 -*-
-
-
-#from zc.relation.interfaces import ICatalog
-#from zope.component import getUtility
 from bs4 import BeautifulSoup
 from Products.Five.browser import BrowserView
-#from Products.CMFCore.utils import getToolByName
 import urllib2
-#from chardet import detect
-#import json
 from ..config import GOV_NOTICE_URL
 from ..config import PCC_DOMAIN
 from ..config import TEST_STRING
@@ -16,7 +9,6 @@ from ..config import NOTICE_KEYWORDS
 from plone import api
 from random import randrange
 from datetime import datetime
-#import sys
 
 
 class GetGovNotice(BrowserView):
@@ -29,8 +21,6 @@ class GetGovNotice(BrowserView):
                 href = line.split('href="')[1].split('">')[0]
                 hrefList.append('%s%s' % (PCC_DOMAIN, href))
 
-#        return '%s\t%s' % (len(hrefgetHref), str(getHref))
-
         #依連結取得各頁面
         portal = api.portal.get()
         catalog = api.portal.get_tool(name='portal_catalog')
@@ -40,8 +30,7 @@ class GetGovNotice(BrowserView):
             soup = BeautifulSoup(doc.decode('utf-8'))
 
             findT11bTags = soup.findAll('th','T11b')
-#            testre = str()
-#            return len(findT11bTags)
+            #get value
             for T11b in findT11bTags:
                 T11bString = T11b.string.strip()
                 if T11bString == NOTICE_KEYWORDS[0]:
@@ -128,6 +117,7 @@ class GetGovNotice(BrowserView):
                     [text for text in T11b.find_next_siblings("td")[0].stripped_strings]
                     companyAbility = text
 
+            #assign value
             contentId = '%s%s' % (str(datetime.now().strftime('%Y%m%d%H%M')), str(randrange(10000000,100000000)))
             api.content.create(container=portal['gov_notice'], type='twgov.content.govnotice', title=noticeName, id=contentId)
             brain = catalog(id=contentId)
@@ -156,6 +146,7 @@ class GetGovNotice(BrowserView):
             item.companyAbility = companyAbility
             item.exclude_from_nav = True
             item.reindexObject(idxs=['exclude_from_nav'])
+            item.noticeUrl = link
             # 先處理一筆
             return '%s%s' % ('ok', str([startDate, endDate, bidDate]))
 
