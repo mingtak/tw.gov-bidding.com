@@ -14,5 +14,11 @@
     permission="cmf.ManagePortal"
     class=".views.GetGovNotice" />
 
+  <browser:page
+    for="*"
+    name="addprofilesetting"
+    permission="cmf.ManagePortal"
+    class=".addprofilesetting.AddProfileSetting" />
+
 
 </configure>
