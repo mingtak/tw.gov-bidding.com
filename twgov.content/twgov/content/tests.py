@@ -52,6 +52,14 @@ def test_suite():
 
         # -*- extra stuff goes here -*-
 
+        # Integration tests for profileSetting
+        ztc.ZopeDocFileSuite(
+            'profileSetting.txt',
+            package='twgov.content',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
         # Integration tests for govNotice
         ztc.ZopeDocFileSuite(
             'govNotice.txt',
