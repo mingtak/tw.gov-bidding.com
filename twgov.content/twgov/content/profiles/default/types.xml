@@ -8,6 +8,6 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
-  <object name="twgov.content.profilesetting" meta_type="Dexterity FTI" />
+<!--  <object name="twgov.content.profilesetting" meta_type="Dexterity FTI" /> -->
   <object name="twgov.content.govnotice" meta_type="Dexterity FTI" />
 </object>
