@@ -16,6 +16,12 @@
                         memberId context/REQUEST/AUTHENTICATED_USER;
                         member python:membership.getMemberById(str(memberId))">
 
+
+<tal:isAnonymous condition="python:True if str(memberId) == 'Anonymous User' else False">
+  <span tal:condition="python:False" tal:content="string:測試匿名，轉向login" />
+  <script>document.location.href="login";</script>
+</tal:isAnonymous>
+
 <span tal:condition="python:False" tal:content="string:form 開始" />
 
 <form name="edit_form" method="post" class="fgBaseEditForm " id="fg-base-edit" action="" tal:attributes="action request/URL">
@@ -24,7 +30,7 @@
 Your E-Mail Address
 </label>
 <input type="text" name="replyto" class="blurrable firstToFocus" id="replyto"
-       size="30" maxlength="255" value="" tal:attributes="value member/emailaddress" />
+       size="30" maxlength="255" value="" tal:attributes="value member/emailaddress|nothing" />
 
 <fieldset class="PFGFieldsetWidget" id="pfg-fieldsetname-keywords">
 <legend for="pfg-fieldsetname-keywords">
@@ -40,7 +46,7 @@ keyword
 </label>
 <div class="fieldErrorBox"></div>
 <input type="text" name="keyword1" class="blurrable firstToFocus" id="keyword1"
-       size="10" maxlength="255" value="" tal:attributes="value member/keyword1" />
+       size="10" maxlength="255" value="" tal:attributes="value member/keyword1|nothing" />
 </div>
 
 <div class="field ArchetypesStringWidget " data-fieldname="keyword2" id="archetypes-fieldname-keyword2">
@@ -51,7 +57,7 @@ keyword
 </label>
 <div class="fieldErrorBox"></div>
 <input type="text" name="keyword2" class="blurrable firstToFocus" id="keyword2"
-       size="10" maxlength="255" value="" tal:attributes="value member/keyword2" />
+       size="10" maxlength="255" value="" tal:attributes="value member/keyword2|nothing" />
 </div>
 
 <div class="field ArchetypesStringWidget " data-fieldname="keyword3" id="archetypes-fieldname-keyword3">
@@ -62,7 +68,7 @@ keyword
 </label>
 <div class="fieldErrorBox"></div>
 <input type="text" name="keyword3" class="blurrable firstToFocus" id="keyword3"
-       size="10" maxlength="255" value="" tal:attributes="value member/keyword3" />
+       size="10" maxlength="255" value="" tal:attributes="value member/keyword3|nothing" />
 </div>
 
 <div class="field ArchetypesStringWidget " data-fieldname="keyword4" id="archetypes-fieldname-keyword4">
@@ -73,7 +79,7 @@ keyword
 </label>
 <div class="fieldErrorBox"></div>
 <input type="text" name="keyword4" class="blurrable firstToFocus" id="keyword4"
-       size="10" maxlength="255" value="" tal:attributes="value member/keyword4" />
+       size="10" maxlength="255" value="" tal:attributes="value member/keyword4|nothing" />
 </div>
 
 <div class="field ArchetypesStringWidget " data-fieldname="keyword5" id="archetypes-fieldname-keyword5">
@@ -84,7 +90,7 @@ keyword
 </label>
 <div class="fieldErrorBox"></div>
 <input type="text" name="keyword5" class="blurrable firstToFocus" id="keyword5"
-       size="10" maxlength="255" value="" tal:attributes="value member/keyword5" />
+       size="10" maxlength="255" value="" tal:attributes="value member/keyword5|nothing" />
 </div>
 
 </fieldset>
