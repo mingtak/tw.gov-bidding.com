@@ -17,7 +17,7 @@
   <browser:page
     for="*"
     name="addprofilesetting"
-    permission="cmf.ManagePortal"
+    permission="zope2.View"
     class=".addprofilesetting.AddProfileSetting" />
 
 
