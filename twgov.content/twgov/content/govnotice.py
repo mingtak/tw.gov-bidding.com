@@ -21,6 +21,7 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from twgov.content import MessageFactory as _
 
+from plone.indexer import indexer
 
 # Interface class; used to define content-type schema.
 
@@ -163,3 +164,9 @@ class SampleView(grok.View):
     # grok.name('view')
 
     # Add view methods here
+
+
+@indexer(IgovNotice)
+def noticeUrl_indexer(obj):
+     return obj.noticeUrl
+grok.global_adapter(noticeUrl_indexer, name='noticeUrl')
