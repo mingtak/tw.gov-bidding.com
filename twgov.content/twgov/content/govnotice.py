@@ -146,9 +146,6 @@ class IgovNotice(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
-
-
-
 class govNotice(Container):
     grok.implements(IgovNotice)
 
@@ -170,3 +167,13 @@ class SampleView(grok.View):
 def noticeUrl_indexer(obj):
      return obj.noticeUrl
 grok.global_adapter(noticeUrl_indexer, name='noticeUrl')
+
+@indexer(IgovNotice)
+def noticeId_indexer(obj):
+     return obj.noticeId
+grok.global_adapter(noticeId_indexer, name='noticeId')
+
+@indexer(IgovNotice)
+def noticeName_indexer(obj):
+     return obj.noticeName
+grok.global_adapter(noticeName_indexer, name='noticeName')
