@@ -25,6 +25,10 @@ class GetGovNotice(BrowserView):
         portal = api.portal.get()
         catalog = api.portal.get_tool(name='portal_catalog')
         for link in hrefList:
+            # 比對 link,或已存在catalog，continue
+            if len(catalog(noticeUrl=link)) > 0:
+                continue
+
             getNoticeHtml = urllib2.urlopen(link)
             doc = getNoticeHtml.read()
             soup = BeautifulSoup(doc.decode('utf-8'))
@@ -144,10 +148,9 @@ class GetGovNotice(BrowserView):
             item.documentSendTo = documentSendTo
             item.companyQualification = companyQualification
             item.companyAbility = companyAbility
+            item.noticeUrl = link
+            # exclude from nav and reindex object
             item.exclude_from_nav = True
             item.reindexObject(idxs=['exclude_from_nav'])
-            item.noticeUrl = link
-            # 先處理一筆
-            return '%s%s' % ('ok', str([startDate, endDate, bidDate]))
 
-        return '%s%s' % ('OK', len(hrefList)) 
+        return '%s%s' % ('OK ', len(hrefList)) 
