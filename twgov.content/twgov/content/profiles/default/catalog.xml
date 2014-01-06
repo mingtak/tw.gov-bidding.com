@@ -4,4 +4,14 @@
         <indexed_attr value="noticeUrl"/>
     </index>
     <column value="noticeUrl"/>
+
+    <index name="noticeId" meta_type="FieldIndex">
+        <indexed_attr value="noticeId"/>
+    </index>
+    <column value="noticeId"/>
+
+    <index name="noticeName" meta_type="FieldIndex">
+        <indexed_attr value="noticeName"/>
+    </index>
+    <column value="noticeName"/>
 </object>
