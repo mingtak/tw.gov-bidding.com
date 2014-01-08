@@ -20,6 +20,7 @@ class GetGovNotice(BrowserView):
             if 'href="/tps/tpam/main/tps/tpam/tpam_tender_detail.do' in line:
                 href = line.split('href="')[1].split('">')[0]
                 hrefList.append('%s%s' % (PCC_DOMAIN, href))
+        hrefList.reverse()
 
         #依連結取得各頁面
         portal = api.portal.get()
