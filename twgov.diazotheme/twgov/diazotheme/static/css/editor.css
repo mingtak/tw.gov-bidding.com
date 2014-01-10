@@ -87,9 +87,24 @@ p.p10,p.p15,p.p20,p.p25,p.p30,p.p33,p.p40,p.p50,p.p60,p.p66,p.p70,p.p75,p.p80,p.
 
 .notice { padding: 8px 10px 7px 35px !important; border: 1px solid #CECECE; background: #E0E0E0; margin-bottom: 10px; position: relative; font-size: 0.95em; border-radius: 4px; }
 .notice:before { position: absolute; top: 5px; left: 8px; content: '\f071'; font-family: FontAwesome; color: #747474; font-size: 1.3em; font-weight: normal;  }
+.portalMessage { padding: 8px 10px 7px 35px !important; border: 1px solid #CECECE; background: #E0E0E0; margin-bottom: 10px; position: relative; font-size: 0.95em; border-radius: 4px; }
+.portalMessage:before { position: absolute; top: 5px; left: 8px; content: '\f071'; font-family: FontAwesome; color: #747474; font-size: 1.3em; font-weight: normal;  }
+
+
 .error { background-color: #f9e5e6; border-color: #E5BBBB; color: #b3696c; }
 .error:before { content: '\f057'; color: #b3696c; }
 .success { background-color: #e3ebc6; border-color: #c2d288; color: #8fa442; }
 .success:before { content: '\f058'; color: #8fa442; }
 .info { background-color: #d8ecf5; border-color: #9ac9df; color: #528da9; }
 .info:before { content: '\f05a'; color: #528da9; }
+
+
+/* modify for twgovnotice */
+/*
+.field.ArchetypesStringWidget.error { background-color: #f9e5e6; border-color: #E5BBBB; color: #b3696c; }
+.field.ArchetypesStringWidget.error:before { content: '\f057'; color: #b3696c; }
+
+.portalMessage.info { padding: 8px 10px 7px 35px !important; border: 1px solid #CECECE; background: #E0E0E0; margin-bottom: 10px; position: relative; font-size: 0.95em; border-radius: 4px; }
+.portalMessage.info:before { position: absolute; top: 5px; left: 8px; content: '\f071'; font-family: FontAwesome; color: #747474; font-size: 1.3em; font-weight: normal;  }
+*/
+

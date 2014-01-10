@@ -7,9 +7,9 @@
 
   <dt class="portletHeader">
       <span class="portletTopLeft"></span>
-      <a class="tile"
+      <h3 class="tile"
          tal:attributes="href view/search_action"
-         i18n:translate="box_search">Search</a>
+         i18n:translate="box_search">Search</h3>
       <span class="portletTopRight"></span>
   </dt>
 
@@ -29,7 +29,8 @@
               tal:attributes="value request/SearchableText|nothing;
                               class python:livesearch and 'searchField portlet-search-gadget' or 'searchField portlet-search-gadget-nols'"
               />
-          <input class="searchButton"
+          <p></p>
+          <input class="searchButton button green small"
               type="submit"
               value="Search"
               i18n:attributes="value label_search;"/>

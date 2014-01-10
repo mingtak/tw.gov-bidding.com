@@ -12,7 +12,7 @@ table{ border-collapse:collapse; border-spacing:0; }
 /* BODY DEFAULTS
 --------------------------------------------------------- */
 html { height: 100%; font-family: 'Open Sans', sans-serif; font-size: 62.5%; text-shadow: 0 0 1px rgba(51,51,51,0.2); }
-body { width: 100%; height: 100%; background: #fff; color: #555; font-size: 1.2em; scroll-behavior: smooth; }
+body { width: 100%; height: 100%; background: #fff; color: #555; font-size: 1.3em; scroll-behavior: smooth; }
 
 p, blockquote { padding: 0 0 20px 0; }
 strong, label, input, button, .button { font-family: 'Open Sans', sans-serif; font-weight: bold; }
@@ -62,9 +62,9 @@ form h3 { clear: both; padding: 10px 0; }
 /* HEADINGS
 --------------------------------------------------------- */
 h1 { font-weight: bold; font-size: 2.15em; margin: 0 0 5px 0; line-height: 1.4; color: #fff; text-transform: uppercase; }
-h2 { font-weight: 300; font-size: 1.8em; margin: 0 0 20px 0; line-height: 1.4; color: #111; }
-h3 { font-weight: bold; font-size: 1.05em; margin: 0 0 20px 0; line-height: 1.4; color: #111; }
-h4 { font-weight: bold; font-size: 1.0em; margin: 0 0 10px 0; line-height: 1.4; }
+h2 { font-weight: 300; font-size: 2.0em; margin: 0 0 20px 0; line-height: 1.4; color: #111; }
+h3 { font-weight: bold; font-size: 1.5em; margin: 0 0 20px 0; line-height: 1.4; color: #111; }
+h4 { font-weight: bold; font-size: 1.3em; margin: 0 0 10px 0; line-height: 1.4; }
 
 
 /* MAIN WRAPPER
@@ -101,8 +101,12 @@ h4 { font-weight: bold; font-size: 1.0em; margin: 0 0 10px 0; line-height: 1.4; 
 
 #header nav { position: relative; z-index: 200; float: left; }
 #header nav ul { text-align: left; margin: 65px 0 0 0; padding: 0; position: relative; }
+/* modify font size, padding
 #header nav ul li { display: inline-block; padding: 0; position: relative; padding: 0 40px 20px 0; }
 #header nav ul li a { color: #fff; font-size: 1.1em; font-weight: bold; text-transform: uppercase; padding: 20px 0 10px 0; }
+*/
+#header nav ul li { display: inline-block; padding: 0; position: relative; padding: 0 20px 20px 0; }
+#header nav ul li a { color: #fff; font-size: 1.5em; font-weight: bold; text-transform: uppercase; padding: 20px 0 10px 0; }
 #header nav > ul > li > a.active { border-bottom: 2px solid white; }
 #header nav > ul > li > a:hover, #header nav > ul > li > a.active-parent, #address-block ul > li > a:hover { color: #ccc; border-color: transparent; padding-bottom: 30px; }
 
@@ -465,7 +469,11 @@ ______________________________________ */
 
 /* FOOTER
 --------------------------------------------------------- */
+/* modify footer setting
 #footer { clear: both; background: #1b1b1b url('../images/backbg.png'); width: 100%; padding: 35px 0 135px 0; font-size: 0.9em; color: #ebebeb; line-height: 1.7; position: relative; z-index: 5; }
+*/
+#footer { clear: both; background: #1b1b1b url('../images/backbg.png'); width: 100%; padding: 35px 0 35px 0; font-size: 1.3em; color: #ebebeb; line-height: 1.7; position: relative; z-index: 5; }
+
 #footer h2, #footer h3 { font-size: 1.3em; color: white; }
 #footer ul { list-style: none; }
 #footer ul li { padding: 12px 0 8px 0; background: url('../images/line-horz.png') left top repeat-x; }
@@ -675,3 +683,6 @@ ______________________________________ */
 	
 }
 
+
+
+/* edit bar */
