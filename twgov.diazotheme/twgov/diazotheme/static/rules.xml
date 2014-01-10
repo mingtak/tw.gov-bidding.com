@@ -13,11 +13,17 @@
     <notheme if-path="/@@manage-portlets" />
     <notheme if-path="plone_control_panel" />
 
-<replace css:theme-children="nav#mainmenu" css:content="#portal-globalnav" />
+<strip css:theme="section#content" css:if-content=".template-default_error_message" />
+
+    <!-- 導航 -->
+    <replace css:theme-children="nav#mainmenu" css:content="#portal-globalnav" />
+
+
     <!-- 全域設定 -->
     <replace css:theme="html head title" css:content="html head title" />
     <merge attributes="class" css:theme="body" css:content="body" />
     <replace css:theme-children="#content" css:content-children="#content" />
+
 
       <!-- right portlet column -->
     <replace css:theme-children="#sidebar" css:content-children="#portal-column-two" />
@@ -50,6 +56,8 @@
 
       <drop css:content="#socialtools" />
     </rules>  
+
+
 
 
 </rules>

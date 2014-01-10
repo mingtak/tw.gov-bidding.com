@@ -65,7 +65,7 @@ h1 { font-weight: bold; font-size: 2.15em; margin: 0 0 5px 0; line-height: 1.4; 
 h2 { font-weight: 300; font-size: 2.0em; margin: 0 0 20px 0; line-height: 1.4; color: #111; }
 h3 { font-weight: bold; font-size: 1.5em; margin: 0 0 20px 0; line-height: 1.4; color: #111; }
 h4 { font-weight: bold; font-size: 1.3em; margin: 0 0 10px 0; line-height: 1.4; }
-
+h5 { font-size: 1.2em; color: #000; }
 
 /* MAIN WRAPPER
 --------------------------------------------------------- */
@@ -108,6 +108,7 @@ h4 { font-weight: bold; font-size: 1.3em; margin: 0 0 10px 0; line-height: 1.4; 
 #header nav ul li { display: inline-block; padding: 0; position: relative; padding: 0 20px 20px 0; }
 #header nav ul li a { color: #fff; font-size: 1.5em; font-weight: bold; text-transform: uppercase; padding: 20px 0 10px 0; }
 #header nav > ul > li > a.active { border-bottom: 2px solid white; }
+li.selected a span { border-bottom: 2px solid white; }
 #header nav > ul > li > a:hover, #header nav > ul > li > a.active-parent, #address-block ul > li > a:hover { color: #ccc; border-color: transparent; padding-bottom: 30px; }
 
 #header nav ul.sub-menu { display: none; position: absolute; top: 20px; left: 0px; margin-top: 10px; z-index: 999; }
