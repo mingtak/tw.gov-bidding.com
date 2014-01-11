@@ -14,4 +14,9 @@
         <indexed_attr value="noticeName"/>
     </index>
     <column value="noticeName"/>
+
+    <index name="govDepartment" meta_type="FieldIndex">
+        <indexed_attr value="govDepartment"/>
+    </index>
+    <column value="govDepartment"/>
 </object>

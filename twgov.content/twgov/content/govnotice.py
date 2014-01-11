@@ -22,6 +22,7 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 from twgov.content import MessageFactory as _
 
 from plone.indexer import indexer
+from collective import dexteritytextindexer
 
 # Interface class; used to define content-type schema.
 
@@ -146,6 +147,10 @@ class IgovNotice(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
+    #setting full text search field
+    dexteritytextindexer.searchable('govDepartment')
+
+
 class govNotice(Container):
     grok.implements(IgovNotice)
 
@@ -177,3 +182,8 @@ grok.global_adapter(noticeId_indexer, name='noticeId')
 def noticeName_indexer(obj):
      return obj.noticeName
 grok.global_adapter(noticeName_indexer, name='noticeName')
+
+@indexer(IgovNotice)
+def govDepartment_indexer(obj):
+     return obj.govDepartment
+grok.global_adapter(govDepartment_indexer, name='govDepartment')
