@@ -19,4 +19,23 @@
         <indexed_attr value="govDepartment"/>
     </index>
     <column value="govDepartment"/>
+
+    <index name="budget" meta_type="FieldIndex">
+        <indexed_attr value="budget"/>
+    </index>
+    <column value="budget"/>
+
+    <index name="bidWay" meta_type="FieldIndex">
+        <indexed_attr value="bidWay"/>
+    </index>
+    <column value="bidWay"/>
+
+    <index name="endDate" meta_type="FieldIndex">
+        <indexed_attr value="endDate"/>
+    </index>
+    <column value="endDate"/>
+
+
+
+
 </object>

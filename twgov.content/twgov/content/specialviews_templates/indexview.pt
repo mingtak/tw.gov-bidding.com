@@ -19,34 +19,30 @@
 <div class="p97 right widget">
   <h2>最新標案公告</h2>
 
+
+  <tal:noticeList define="catalog context/portal_catalog;
+                          brains catalog"
+                  repeat="i python:range(6)">
+
 <div class="p100">
-
-    <div class="p33">
-     <h5 class="smaller-margin"><span class="square-icons red"><i class="icon-edit"></i></span>103年度觀光旅遊服務網及行政資訊網網站更新維護案</h5>
-     <p>交通部觀光局茂林國家風景區管理處governmetn branch unit交通部觀光局茂林國家風景區管理處</p>
+    <div class="p33" tal:define="object python:brains[i];
+                                 getUrl python:object.getPath().split('/twGovBidding')[1]">
+     <h5 class="smaller-margin"><span class="square-icons red"><i class="icon-edit"></i></span>
+       <a tal:attributes="href getUrl" tal:content="object/Title"> notice title
+       </a>
+     </h5>
+     <p><span tal:content="structure string:<strong>招標單位:</strong>${object/govDepartment}"> gov department </span><br/>
+        <span tal:content="structure string:<strong>預算金額:</strong>${object/budget}"> notice budget </span><br/>
+        <span tal:content="structure string:<strong>招標方式:</strong>${object/bidWay}"> notice bid way </span><br/>
+        <tal:endDate define="endDate python:str(object.endDate).split()[0]">
+          <span tal:content="structure string:<strong>截標日期:</strong>${endDate}"> notice end date </span>
+        </tal:endDate>
+        <a class="right" href="" tal:attributes="href getUrl">詳見...</a>
+     </p>
     </div>
-
-    <div class="p33">
-     <h5 class="smaller-margin"><span class="square-icons red"><i class="icon-edit"></i></span>103年度觀光旅遊服務網及行政資訊網網站更新維護案</h5>
-     <p>交通部觀光局茂林國家風景區管理處governmetn branch unit交通部觀光局茂林國家風景區管理處</p>
-    </div>
-    
-    <div class="p33">
-     <h5 class="smaller-margin"><span class="square-icons red"><i class="icon-edit"></i></span>103年度觀光旅遊服務網及行政資訊網網站更新維護案</h5>
-     <p>交通部觀光局茂林國家風景區管理處governmetn branch unit交通部觀光局茂林國家風景區管理處</p>
-    </div>
-
-    <div class="p50">
-     <h5 class="smaller-margin"><span class="square-icons red"><i class="icon-edit"></i></span>103年度觀光旅遊服務網及行政資訊網網站更新維護案</h5>
-     <p>交通部觀光局茂林國家風景區管理處governmetn branch unit交通部觀光局茂林國家風景區管理處</p>
-    </div>
-    
-    <div class="p50">
-     <h5 class="smaller-margin"><span class="square-icons red"><i class="icon-edit"></i></span>103年度觀光旅遊服務網及行政資訊網網站更新維護案</h5>
-     <p>交通部觀光局茂林國家風景區管理處governmetn branch unit交通部觀光局茂林國家風景區管理處</p>
-    </div>
-
 </div>
+
+  </tal:noticeList>
 
 </div>
 

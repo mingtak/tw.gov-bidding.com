@@ -187,3 +187,18 @@ grok.global_adapter(noticeName_indexer, name='noticeName')
 def govDepartment_indexer(obj):
      return obj.govDepartment
 grok.global_adapter(govDepartment_indexer, name='govDepartment')
+
+@indexer(IgovNotice)
+def budget_indexer(obj):
+     return obj.budget
+grok.global_adapter(budget_indexer, name='budget')
+
+@indexer(IgovNotice)
+def bidWay_indexer(obj):
+     return obj.bidWay
+grok.global_adapter(bidWay_indexer, name='bidWay')
+
+@indexer(IgovNotice)
+def endDate_indexer(obj):
+     return obj.endDate
+grok.global_adapter(endDate_indexer, name='endDate')
