@@ -137,7 +137,7 @@ class GetGovNotice(BrowserView):
             item.noticeId = noticeId
             item.noticeName = noticeName
             item.budget = budget
-            item.bidWay =bidWay
+            item.bidWay = bidWay
             item.decideWay = decideWay
             item.noticeTimes = noticeTimes
             item.noticeState = noticeState
@@ -150,6 +150,13 @@ class GetGovNotice(BrowserView):
             item.companyQualification = companyQualification
             item.companyAbility = companyAbility
             item.noticeUrl = link
+            # setting Description
+            '''
+            item.description = '%s%s\n%s%s\n%s%s\n%s%s' % ('預算金額:', 'budget',
+                                                           '招標方式:', bidWay,
+                                                           '決標方式:', decideWay,
+                                                           '截標時間', str(item.endDate),)
+            '''
             # exclude from nav and reindex object
             item.exclude_from_nav = True
             item.reindexObject(idxs=['exclude_from_nav'])

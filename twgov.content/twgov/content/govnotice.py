@@ -163,7 +163,7 @@ class SampleView(grok.View):
     grok.context(IgovNotice)
     grok.require('zope2.View')
 
-    # grok.name('view')
+    grok.name('view')
 
     # Add view methods here
 
