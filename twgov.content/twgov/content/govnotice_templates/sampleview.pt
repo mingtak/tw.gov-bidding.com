@@ -45,6 +45,7 @@
       </div>
 
       <div class="tab tab5" style="display: none;">
+        <p><strong>公告日期：</strong><span tal:content="python:str(context.startDate).split()[0]"></span></p>
         <p><strong>標案案號：</strong><span tal:content="context/noticeId"></span></p>
         <p><strong>標案名稱：</strong><span tal:content="context/noticeName"></span></p>
         <p><strong>標案預算：</strong><span tal:content="context/budget"></span></p>
@@ -55,7 +56,6 @@
       </div>
 
       <div class="tab tab6" style="display: none;">
-        <p><strong>公告日期：</strong><span tal:content="python:str(context.startDate).split()[0]"></span></p>
         <p><strong>截標時間：</strong><span tal:content="context/endDate"></span></p>
         <p><strong>開標時間：</strong><span tal:content="context/bidDate"></span></p>
         <p><strong>開標地點：</strong><span tal:content="context/bidAddress"></span></p>
