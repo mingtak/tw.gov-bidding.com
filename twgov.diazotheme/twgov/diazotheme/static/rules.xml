@@ -12,8 +12,11 @@
     <notheme if-path="/@@manage-viewlets" />
     <notheme if-path="/@@manage-portlets" />
     <notheme if-path="plone_control_panel" />
-
-<strip css:theme="section#content" css:if-content=".template-default_error_message" />
+    <notheme if-path="/edit" />
+    <notheme if-path="/@@getgovnotice" />
+    <notheme css:if-content="#personaltools-plone_setup" />
+    <notheme if="$ajax_load" />
+    
 
     <!-- 導航 -->
     <replace css:theme-children="nav#mainmenu" css:content="#portal-globalnav" />
@@ -24,6 +27,8 @@
     <merge attributes="class" css:theme="body" css:content="body" />
     <replace css:theme-children="#content" css:content-children="#content" />
 
+      <!-- 404 not found page -->
+    <strip css:theme="section#content" css:if-content=".template-default_error_message" />
 
       <!-- right portlet column -->
     <replace css:theme-children="#sidebar" css:content-children="#portal-column-two" />
@@ -54,7 +59,6 @@
     <rules> <!--  if-path="/gov_notice"> -->
       <theme href="testimonials.html" />
 
-      <drop css:content="#socialtools" />
     </rules>  
 
 

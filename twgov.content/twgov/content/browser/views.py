@@ -25,6 +25,8 @@ class GetGovNotice(BrowserView):
         #依連結取得各頁面
         portal = api.portal.get()
         catalog = api.portal.get_tool(name='portal_catalog')
+#error count
+        err = 0
         for link in hrefList:
             # 比對 link,或已存在catalog，continue
             if len(catalog(noticeUrl=link)) > 0:
@@ -124,7 +126,15 @@ class GetGovNotice(BrowserView):
 
             #assign value
             contentId = '%s%s' % (str(datetime.now().strftime('%Y%m%d%H%M')), str(randrange(10000000,100000000)))
-            api.content.create(container=portal['gov_notice'], type='twgov.content.govnotice', title=noticeName, id=contentId)
+            try:            
+                api.content.create(container=portal['gov_notice'], type='twgov.content.govnotice', title=u'測一下', id=contentId)
+                return '成功一次'
+#noticeName, id=contentId)
+            except:
+                err += 1
+            #    return err
+                continue
+                
             brain = catalog(id=contentId)
             item = brain[0].getObject()
             item.govDepartment = govDepartment
@@ -160,5 +170,6 @@ class GetGovNotice(BrowserView):
             # exclude from nav and reindex object
             item.exclude_from_nav = True
             item.reindexObject(idxs=['exclude_from_nav'])
+            break
 
-        return '%s%s' % ('OK ', len(hrefList)) 
+        return '%s%s, error count: %s' % ('OK ', len(hrefList), err) 
