@@ -24,6 +24,7 @@ from twgov.content import MessageFactory as _
 from plone.indexer import indexer
 from collective import dexteritytextindexer
 
+
 # Interface class; used to define content-type schema.
 
 class IgovNotice(form.Schema, IImageScaleTraversable):
@@ -202,3 +203,4 @@ grok.global_adapter(bidWay_indexer, name='bidWay')
 def endDate_indexer(obj):
      return obj.endDate
 grok.global_adapter(endDate_indexer, name='endDate')
+
